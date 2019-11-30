@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Your Recommends are Here!!</title>
+</head>
+<body>
+
+	<table border="1" summary="gives the recommendations to the user">	
+		<caption><strong> Books Matching Your Query </strong></caption>
+		<thead>
+			<tr>
+				<th>Book Title</th>
+				<th>Book Author</th>
+				<th>Book Summary</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for book in recommendations %}
+				<tr>
+					<td> {{ book.book_title }} </td>
+					<td> {{ book.book_author }} </td>
+					<td> {{ book.summary }} </td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+</body>
+</html>

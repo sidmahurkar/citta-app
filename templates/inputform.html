@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<!-- <head>
+</head>  -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/static/forestbridge.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+
+  <div class="w3-display-middle">
+
+    <!-- to Display error messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category,message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}           
+          </div>
+        {% endfor %}            
+      {% endif %}
+    {% endwith %}
+
+    <div class="content-section">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <legend class = "border-bottom mb-4">Your Search for the perfect book ends here!!</legend>
+        <fieldset class = "form-group">
+          
+          <div class="form-group">
+            {{ form.query.label(class="form-control-label") }}
+
+            {% if form.query.errors %}
+              {{ form.query(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.query.errors %}
+                  <span> {{ error }} </span>
+                {% endfor %}
+              </div>
+
+            {% else %}
+              {{ form.query(class="form-control form-control-lg") }}
+            {% endif %}  
+          </div>
+            
+        </fieldset>
+        
+        <div class="form-group">
+          {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+        
+
+      </form>
+     </div>
+   </div>
+
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</body>
+</html>
