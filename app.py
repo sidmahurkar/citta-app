@@ -3,11 +3,12 @@ from flask import Flask, render_template, url_for, flash, redirect
 from forms import QueryForm
 
 # Framework Imports
+import nltk
 import pandas as pd
 import numpy as np
 
 from nltk.cluster import KMeansClusterer
-import nltk  
+  
 
 from sklearn import cluster
 from sklearn import metrics
