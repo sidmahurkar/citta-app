@@ -18,7 +18,7 @@ nltk==3.4.5
 numpy==1.14.6
 pandas==0.25.3
 pbr==5.4.4
-pipenv==2018.11.26
+pipenv==2022.1.8
 pipenv-to-requirements==0.8.2
 psycopg2==2.8.4
 psycopg2-binary==2.8.4
